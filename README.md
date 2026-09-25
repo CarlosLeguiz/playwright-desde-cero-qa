@@ -51,7 +51,7 @@ npx playwright show-report
 
 ## Progreso
 
-- [x] Módulo 1: Introducción a Playwright
+- [x] [Módulo 1: Introducción a Playwright](./docs/01-introduccion/README.md)
 - [x] Módulo 2: Instalación y primer test
 - [x] Módulo 3: Motores de navegador (Chromium, Firefox, WebKit)
 - [ ] Módulo 4: Anatomía de un test (async/await, locators)
