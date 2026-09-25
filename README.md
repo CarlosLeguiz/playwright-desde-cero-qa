@@ -53,7 +53,7 @@ npx playwright show-report
 
 - [x] [Módulo 1: Introducción a Playwright](./docs/01-introduccion/README.md)
 - [x] [Módulo 2: Instalación y setup](./docs/02-instalacion/README.md)
-- [x] Módulo 3: Motores de navegador (Chromium, Firefox, WebKit)
+- [x] [Módulo 3: Motores de navegador](./docs/03-motores-de-navegador/README.md)
 - [ ] Módulo 4: Anatomía de un test (async/await, locators)
 - [ ] Módulo 5: Grabar tests con codegen
 - [ ] Módulo 6: Locators y buenas prácticas
