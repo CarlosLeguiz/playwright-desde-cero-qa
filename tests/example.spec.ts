@@ -1,18 +1,25 @@
 import { test, expect } from '@playwright/test';
 
-test('has title', async ({ page }) => {
+test('la página tiene el logo de Playwright', async ({ page }) => {
   await page.goto('https://playwright.dev/');
 
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
+  // Verificamos que exista una imagen con el alt "Playwright logo"
+  await expect(page.getByRole('img', { name: 'Playwright logo' })).toBeVisible();
 });
 
-test('get started link', async ({ page }) => {
+test('el link a la documentación existe', async ({ page }) => {
   await page.goto('https://playwright.dev/');
 
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
+  // Verificamos que exista un link llamado "Docs"
+  const linkDocs = page.getByRole('link', { name: 'Docs' }).first();
+  await expect(linkDocs).toBeVisible();
+});
 
-  // Expects page to have a heading with the name of Installation.
-  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
+test('al hacer click en "Docs" cambia la URL', async ({ page }) => {
+  await page.goto('https://playwright.dev/');
+
+  await page.getByRole('link', { name: 'Docs' }).first().click();
+
+  // Verificamos que la URL contenga "/docs"
+  await expect(page).toHaveURL(/\/docs/);
 });
