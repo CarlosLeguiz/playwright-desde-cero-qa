@@ -55,7 +55,7 @@ npx playwright show-report
 - [x] [Módulo 2: Instalación y setup](./docs/02-instalacion/README.md)
 - [x] [Módulo 3: Motores de navegador](./docs/03-motores-de-navegador/README.md)
 - [x] [Módulo 4: Anatomía de un test](./docs/04-anatomia-de-un-test/README.md)
-- [ ] Módulo 5: Grabar tests con codegen
+- [x] [Módulo 5: Codegen](./docs/05-codegen/README.md)
 - [ ] Módulo 6: Locators y buenas prácticas
 - [ ] Módulo 7: Acciones (click, fill, type)
 - [ ] Módulo 8: Assertions
