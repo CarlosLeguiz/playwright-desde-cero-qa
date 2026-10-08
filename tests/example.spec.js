@@ -1,4 +1,5 @@
-import { test, expect } from '@playwright/test';
+// @ts-check
+const { test, expect } = require('@playwright/test');
 
 test('la página tiene el logo de Playwright', async ({ page }) => {
   await page.goto('https://playwright.dev/');

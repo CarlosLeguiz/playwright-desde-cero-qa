@@ -8,7 +8,7 @@ Este es el tema más importante de todo Playwright. Un test con buenos locators 
 
 Cuando escribís:
 
-```typescript
+```javascript
 page.getByRole('button', { name: 'Enviar' })
 ```
 
@@ -16,7 +16,7 @@ Estás creando un locator: una "referencia" a un elemento de la página que dice
 
 **Importante:** el locator NO ejecuta la búsqueda al momento. Es como una promesa de "cuando la necesites, buscá esto". La búsqueda se ejecuta cuando hacés una acción o assertion sobre él.
 
-```typescript
+```javascript
 // Esto NO busca nada todavía
 const boton = page.getByRole('button', { name: 'Enviar' });
 
@@ -36,7 +36,7 @@ Los locators recomendados, en orden de preferencia:
 
 Busca elementos por su rol de accesibilidad (el rol que usan los lectores de pantalla).
 
-```typescript
+```javascript
 page.getByRole('button', { name: 'Guardar' })
 page.getByRole('link', { name: 'Ir al inicio' })
 page.getByRole('heading', { name: 'Bienvenido' })
@@ -64,7 +64,7 @@ page.getByRole('checkbox', { name: 'Recordarme' })
 
 Busca inputs por el `<label>` que los acompaña.
 
-```typescript
+```javascript
 // Para este HTML:
 // <label for="email">Email</label>
 // <input id="email" type="email">
@@ -78,7 +78,7 @@ page.getByLabel('Email')
 
 Busca elementos que contengan un texto específico.
 
-```typescript
+```javascript
 page.getByText('Bienvenido, Carlos')
 page.getByText('Pedido confirmado')
 ```
@@ -87,21 +87,21 @@ page.getByText('Pedido confirmado')
 
 ### 4. `getByPlaceholder` (para inputs con placeholder)
 
-```typescript
+```javascript
 // Para: <input placeholder="Buscar productos...">
 page.getByPlaceholder('Buscar productos...')
 ```
 
 ### 5. `getByAltText` (para imágenes)
 
-```typescript
+```javascript
 // Para: <img alt="Logo de la empresa">
 page.getByAltText('Logo de la empresa')
 ```
 
 ### 6. `getByTitle` (para elementos con atributo title)
 
-```typescript
+```javascript
 // Para: <button title="Cerrar ventana">X</button>
 page.getByTitle('Cerrar ventana')
 ```
@@ -110,7 +110,7 @@ page.getByTitle('Cerrar ventana')
 
 Busca por un atributo `data-testid` puesto especialmente para tests.
 
-```typescript
+```javascript
 // Para: <div data-testid="carrito-total">$1.500</div>
 page.getByTestId('carrito-total')
 ```
@@ -123,7 +123,7 @@ Playwright también soporta selectores CSS y XPath, pero **son la última opció
 
 ### CSS
 
-```typescript
+```javascript
 page.locator('.btn-primary')
 page.locator('#login-button')
 page.locator('div.modal > button.close')
@@ -131,7 +131,7 @@ page.locator('div.modal > button.close')
 
 ### XPath
 
-```typescript
+```javascript
 page.locator('//button[@class="btn-primary"]')
 page.locator('//div[contains(@class, "modal")]//button')
 ```
@@ -154,14 +154,14 @@ Podés combinar locators para ser más específico.
 
 ### `.filter()` para filtrar por contenido
 
-```typescript
+```javascript
 // Todos los items de lista que contengan el texto "En stock"
 page.getByRole('listitem').filter({ hasText: 'En stock' })
 ```
 
 ### `.locator()` para buscar adentro de otro locator
 
-```typescript
+```javascript
 // El botón "Comprar" que está dentro del producto con nombre "Zapatillas"
 page.getByRole('listitem').filter({ hasText: 'Zapatillas' })
     .getByRole('button', { name: 'Comprar' })
@@ -169,7 +169,7 @@ page.getByRole('listitem').filter({ hasText: 'Zapatillas' })
 
 ### `.first()`, `.last()`, `.nth(index)` para elegir por posición
 
-```typescript
+```javascript
 page.getByRole('listitem').first()      // el primero
 page.getByRole('listitem').last()       // el último
 page.getByRole('listitem').nth(2)       // el tercero (índice 0)
@@ -217,7 +217,7 @@ La extensión "Playwright Test for VSCode" tiene un botón "Pick locator" que ha
 
 ### Un formulario de login
 
-```typescript
+```javascript
 await page.goto('https://miapp.com/login');
 await page.getByLabel('Email').fill('carlos@test.com');
 await page.getByLabel('Contraseña').fill('12345');
@@ -226,7 +226,7 @@ await page.getByRole('button', { name: 'Ingresar' }).click();
 
 ### Un checkout de e-commerce
 
-```typescript
+```javascript
 await page.getByRole('link', { name: 'Carrito' }).click();
 await page.getByRole('button', { name: 'Finalizar compra' }).click();
 await page.getByLabel('Dirección de envío').fill('Av. Colón 1234');
@@ -236,7 +236,7 @@ await page.getByRole('button', { name: 'Confirmar pedido' }).click();
 
 ### Interactuar con una fila específica de una tabla
 
-```typescript
+```javascript
 const filaCarlos = page.getByRole('row').filter({ hasText: 'Carlos Leguizamón' });
 await filaCarlos.getByRole('button', { name: 'Editar' }).click();
 ```

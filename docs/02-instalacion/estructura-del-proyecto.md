@@ -8,11 +8,11 @@ Cuando corriste `npm init playwright@latest`, se crearon varias carpetas y archi
 playwright-desde-cero-qa/
 ├── node_modules/
 ├── tests/
-│   └── example.spec.ts
+│   └── example.spec.js
 ├── .gitignore
 ├── package.json
 ├── package-lock.json
-└── playwright.config.ts
+└── playwright.config.js
 ```
 
 Vamos uno por uno.
@@ -44,7 +44,7 @@ Adentro viene por default:
 
 - `example.spec.ts`: un test de ejemplo que trae Playwright
 
-**Convención importante:** los archivos de tests siempre terminan en `.spec.ts` o `.test.ts`. Playwright busca automáticamente todos los archivos con esa terminación y los ejecuta cuando corrés `npx playwright test`.
+**Convención importante:** los archivos de tests siempre terminan en `.spec.js` o `.test.js`. Playwright busca automáticamente todos los archivos con esa terminación y los ejecuta cuando corrés `npx playwright test`.
 
 ## .gitignore
 
@@ -106,7 +106,7 @@ Un archivo más largo que `package.json`. Guarda las versiones EXACTAS de todas 
 
 **Nunca lo edites a mano.** Se actualiza solo con `npm install`.
 
-## playwright.config.ts
+## playwright.config.js
 
 El archivo de configuración de Playwright. Este SÍ lo vas a editar seguido a medida que aprendas.
 
@@ -131,7 +131,7 @@ Es el "panel de control" de Playwright. Por default trae una configuración bast
 | `.gitignore` | Rara vez | Sí |
 | `package.json` | A veces | Sí |
 | `package-lock.json` | Nunca | Sí |
-| `playwright.config.ts` | Seguido | Sí |
+| `playwright.config.js` | Seguido | Sí |
 
 ## Carpetas que aparecen después
 

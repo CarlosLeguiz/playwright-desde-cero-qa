@@ -67,7 +67,7 @@ No necesitás poner `sleep()` ni `waitForElement()` en ningún lado.
 
 Las verificaciones (`expect(...)`) reintentan automáticamente durante unos segundos hasta que se cumplen. Ejemplo:
 
-```typescript
+```javascript
 await expect(page.getByText('Pedido confirmado')).toBeVisible();
 ```
 

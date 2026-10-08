@@ -8,7 +8,7 @@ Una assertion (afirmación, en español) es una verificación de que algo cumple
 
 Estructura básica:
 
-```typescript
+```javascript
 await expect(algo).condicion();
 ```
 
@@ -16,7 +16,7 @@ Se lee como una oración en inglés: "espero que [algo] cumpla [condición]".
 
 Ejemplo:
 
-```typescript
+```javascript
 await expect(page.getByText('Bienvenido')).toBeVisible();
 // Traducido: "espero que el texto 'Bienvenido' sea visible"
 ```
@@ -31,7 +31,7 @@ En Playwright hay dos categorías:
 
 Se usan con `await` y reintentan automáticamente hasta que se cumplen o se llega al timeout.
 
-```typescript
+```javascript
 await expect(page).toHaveTitle('Mi App');
 await expect(page.getByText('Cargando')).toBeHidden();
 ```
@@ -40,7 +40,7 @@ await expect(page.getByText('Cargando')).toBeHidden();
 
 Se usan SIN `await` y NO reintentan. Verifican valores comunes de JavaScript.
 
-```typescript
+```javascript
 expect(2 + 2).toBe(4);
 expect(['a', 'b', 'c']).toContain('b');
 ```
@@ -53,7 +53,7 @@ Esta es una de las features más importantes de Playwright.
 
 Cuando escribís:
 
-```typescript
+```javascript
 await expect(page.getByText('Pedido confirmado')).toBeVisible();
 ```
 
@@ -79,7 +79,7 @@ Con web-first assertions no necesitás poner `sleep(3)` ni `waitForElement()`. P
 
 ### `toBeVisible` / `toBeHidden`
 
-```typescript
+```javascript
 await expect(page.getByText('Bienvenido')).toBeVisible();
 await expect(page.getByText('Cargando...')).toBeHidden();
 ```
@@ -88,7 +88,7 @@ await expect(page.getByText('Cargando...')).toBeHidden();
 
 Verifica que el elemento tenga un texto exacto.
 
-```typescript
+```javascript
 await expect(page.getByRole('heading')).toHaveText('Panel de control');
 ```
 
@@ -96,7 +96,7 @@ await expect(page.getByRole('heading')).toHaveText('Panel de control');
 
 Verifica que el elemento contenga un texto (más flexible que `toHaveText`).
 
-```typescript
+```javascript
 await expect(page.getByRole('alert')).toContainText('error');
 ```
 
@@ -104,7 +104,7 @@ await expect(page.getByRole('alert')).toContainText('error');
 
 Verifica el estado de un botón o input.
 
-```typescript
+```javascript
 await expect(page.getByRole('button', { name: 'Enviar' })).toBeEnabled();
 await expect(page.getByRole('button', { name: 'Enviar' })).toBeDisabled();
 ```
@@ -113,7 +113,7 @@ await expect(page.getByRole('button', { name: 'Enviar' })).toBeDisabled();
 
 Verifica un checkbox o radio.
 
-```typescript
+```javascript
 await expect(page.getByLabel('Acepto los términos')).toBeChecked();
 ```
 
@@ -121,7 +121,7 @@ await expect(page.getByLabel('Acepto los términos')).toBeChecked();
 
 Verifica el valor de un input.
 
-```typescript
+```javascript
 await expect(page.getByLabel('Email')).toHaveValue('carlos@test.com');
 ```
 
@@ -129,7 +129,7 @@ await expect(page.getByLabel('Email')).toHaveValue('carlos@test.com');
 
 Verifica cuántos elementos hay que matcheen el locator.
 
-```typescript
+```javascript
 await expect(page.getByRole('listitem')).toHaveCount(5);
 ```
 
@@ -139,7 +139,7 @@ await expect(page.getByRole('listitem')).toHaveCount(5);
 
 Verifica un atributo HTML de un elemento.
 
-```typescript
+```javascript
 await expect(page.getByRole('link', { name: 'Docs' })).toHaveAttribute('href', '/docs');
 ```
 
@@ -149,13 +149,13 @@ await expect(page.getByRole('link', { name: 'Docs' })).toHaveAttribute('href', '
 
 Verifica el título de la página (lo que aparece en la pestaña del navegador).
 
-```typescript
+```javascript
 await expect(page).toHaveTitle('Mi App - Inicio');
 ```
 
 Podés usar expresiones regulares para que sea más flexible:
 
-```typescript
+```javascript
 await expect(page).toHaveTitle(/Mi App/);
 // Pasa si el título contiene "Mi App" en cualquier parte
 ```
@@ -164,7 +164,7 @@ await expect(page).toHaveTitle(/Mi App/);
 
 Verifica la URL actual.
 
-```typescript
+```javascript
 await expect(page).toHaveURL('https://miapp.com/dashboard');
 await expect(page).toHaveURL(/\/dashboard/); // regex, más flexible
 ```
@@ -175,7 +175,7 @@ Muy útil para verificar redirects.
 
 Cualquier assertion se puede invertir con `.not`.
 
-```typescript
+```javascript
 // El elemento NO debe ser visible
 await expect(page.getByText('Cargando')).not.toBeVisible();
 
@@ -190,7 +190,7 @@ await expect(page).not.toHaveURL(/\/error/);
 
 Por default, las web-first assertions esperan hasta 5 segundos. Podés modificarlo para casos especiales:
 
-```typescript
+```javascript
 // Esperar hasta 30 segundos (útil para respuestas de IA que tardan)
 await expect(page.getByText('Análisis completo')).toBeVisible({ timeout: 30000 });
 ```
@@ -199,8 +199,8 @@ El timeout se pasa en milisegundos: 30000 = 30 segundos.
 
 ## Un test completo con varias assertions
 
-```typescript
-import { test, expect } from '@playwright/test';
+```javascript
+const { test, expect } = require('@playwright/test');
 
 test('el usuario puede completar la compra', async ({ page }) => {
   // Preparar
@@ -232,7 +232,7 @@ Notá cómo las assertions están distribuidas a lo largo del test. Cada una ver
 
 Cuando verificás valores que NO vienen del navegador, no lleva `await`:
 
-```typescript
+```javascript
 // Comparaciones simples
 expect(2 + 2).toBe(4);
 expect('hola').toBe('hola');
@@ -254,7 +254,7 @@ expect(usuario).toMatchObject({ nombre: 'Carlos', ciudad: 'Córdoba' });
 
 Podés agregar un mensaje que aparezca cuando la assertion falle. Ayuda a debuggear más rápido.
 
-```typescript
+```javascript
 await expect(page.getByText('Bienvenido'), 'El mensaje de bienvenida debería aparecer después del login').toBeVisible();
 ```
 
@@ -264,7 +264,7 @@ Si falla, el mensaje aparece en el reporte y en la salida de la terminal.
 
 Por default, cuando una assertion falla, el test se detiene inmediatamente. Con "soft assertions" el test continúa y acumula todos los errores para reportarlos al final.
 
-```typescript
+```javascript
 await expect.soft(page.getByText('Título 1')).toBeVisible();
 await expect.soft(page.getByText('Título 2')).toBeVisible();
 await expect.soft(page.getByText('Título 3')).toBeVisible();
@@ -278,13 +278,13 @@ await expect.soft(page.getByText('Título 3')).toBeVisible();
 **1. Verificá el estado esperado, no la ausencia de errores.**
 
 En vez de:
-```typescript
+```javascript
 // ❌ ambiguo
 await expect(page.getByText('Error')).not.toBeVisible();
 ```
 
 Preferí:
-```typescript
+```javascript
 // ✅ claro
 await expect(page.getByText('Pedido confirmado')).toBeVisible();
 ```

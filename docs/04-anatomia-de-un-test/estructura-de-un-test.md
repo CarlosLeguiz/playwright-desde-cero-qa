@@ -4,8 +4,8 @@ Todo test de Playwright tiene la misma estructura básica. Una vez que la entend
 
 ## La estructura mínima
 
-```typescript
-import { test, expect } from '@playwright/test';
+```javascript
+const { test, expect } = require('@playwright/test');
 
 test('nombre del test', async ({ page }) => {
   // acciones y verificaciones
@@ -16,8 +16,8 @@ Vamos a desarmar esta línea por línea.
 
 ## El import
 
-```typescript
-import { test, expect } from '@playwright/test';
+```javascript
+const { test, expect } = require('@playwright/test');
 ```
 
 Traemos dos funciones desde la librería de Playwright:
@@ -29,7 +29,7 @@ Este import va SIEMPRE al principio de cada archivo de test. Sin él, ni `test` 
 
 ## La función `test`
 
-```typescript
+```javascript
 test('nombre del test', async ({ page }) => {
   // ...
 });
@@ -47,7 +47,7 @@ Un string que describe qué hace el test. Aparece en:
 
 **Convención:** el nombre debe describir el comportamiento esperado. Ejemplos buenos:
 
-```typescript
+```javascript
 test('el usuario puede iniciar sesión con credenciales válidas', ...)
 test('muestra error cuando el email es inválido', ...)
 test('el carrito refleja el total correcto al agregar productos', ...)
@@ -55,7 +55,7 @@ test('el carrito refleja el total correcto al agregar productos', ...)
 
 Ejemplos malos:
 
-```typescript
+```javascript
 test('test1', ...)              // no dice nada
 test('login', ...)              // muy genérico
 test('probar botón', ...)       // no dice qué se espera
@@ -63,7 +63,7 @@ test('probar botón', ...)       // no dice qué se espera
 
 ### Parámetro 2: la función asíncrona
 
-```typescript
+```javascript
 async ({ page }) => {
   // acciones
 }
@@ -98,7 +98,7 @@ Cuando escribís `({ page })` le estás diciendo a Playwright: "para este test, 
 
 `{ page }` es "destructuring": una forma de sacar propiedades de un objeto. Es equivalente a:
 
-```typescript
+```javascript
 async (fixtures) => {
   const page = fixtures.page;
   // ...
@@ -109,7 +109,7 @@ Pero mucho más corto y limpio.
 
 Si quisieras usar varios fixtures a la vez:
 
-```typescript
+```javascript
 test('ejemplo', async ({ page, context, request }) => {
   // acá tenés los tres disponibles
 });
@@ -123,7 +123,7 @@ test('ejemplo', async ({ page, context, request }) => {
 
 **Navegar:**
 
-```typescript
+```javascript
 await page.goto('https://miapp.com');
 await page.goBack();
 await page.reload();
@@ -131,7 +131,7 @@ await page.reload();
 
 **Encontrar elementos (locators):**
 
-```typescript
+```javascript
 page.getByRole('button', { name: 'Enviar' })
 page.getByText('Bienvenido')
 page.getByLabel('Email')
@@ -139,7 +139,7 @@ page.getByLabel('Email')
 
 **Ejecutar acciones:**
 
-```typescript
+```javascript
 await page.getByRole('button').click();
 await page.getByLabel('Email').fill('carlos@test.com');
 await page.getByLabel('Password').press('Enter');
@@ -147,7 +147,7 @@ await page.getByLabel('Password').press('Enter');
 
 **Obtener información:**
 
-```typescript
+```javascript
 const title = await page.title();
 const url = page.url();
 const content = await page.content();
@@ -155,7 +155,7 @@ const content = await page.content();
 
 **Interceptar red:**
 
-```typescript
+```javascript
 await page.route('**/api/users', route => route.fulfill({ ... }));
 ```
 
@@ -163,8 +163,8 @@ Los detalles de cada acción los vemos en los próximos módulos. Por ahora qued
 
 ## Un test con varias acciones
 
-```typescript
-import { test, expect } from '@playwright/test';
+```javascript
+const { test, expect } = require('@playwright/test');
 
 test('el usuario puede buscar y ver resultados', async ({ page }) => {
   // 1. Navegar
@@ -185,8 +185,8 @@ Este es el patrón más común: **Arrange (preparar) → Act (actuar) → Assert
 
 Podés tener muchos tests en el mismo archivo:
 
-```typescript
-import { test, expect } from '@playwright/test';
+```javascript
+const { test, expect } = require('@playwright/test');
 
 test('el login funciona con credenciales válidas', async ({ page }) => {
   // ...
@@ -207,8 +207,8 @@ Cada test corre **de forma aislada**: Playwright abre un navegador limpio para c
 
 Cuando tenés varios tests relacionados, podés agruparlos:
 
-```typescript
-import { test, expect } from '@playwright/test';
+```javascript
+const { test, expect } = require('@playwright/test');
 
 test.describe('Módulo de login', () => {
   test('funciona con credenciales válidas', async ({ page }) => {

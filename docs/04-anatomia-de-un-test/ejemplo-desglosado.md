@@ -4,8 +4,8 @@ Cuando instalaste Playwright, se creó un archivo en `tests/example.spec.ts`. Es
 
 ## El código completo
 
-```typescript
-import { test, expect } from '@playwright/test';
+```javascript
+const { test, expect } = require('@playwright/test');
 
 test('has title', async ({ page }) => {
   await page.goto('https://playwright.dev/');
@@ -31,8 +31,8 @@ Son dos tests. Vamos uno por uno.
 
 ### Línea 1: el import
 
-```typescript
-import { test, expect } from '@playwright/test';
+```javascript
+const { test, expect } = require('@playwright/test');
 ```
 
 Traemos las dos funciones fundamentales de Playwright:
@@ -43,7 +43,7 @@ Este import va SIEMPRE al principio de cada archivo `.spec.ts`.
 
 ### Línea 3: la declaración del test
 
-```typescript
+```javascript
 test('has title', async ({ page }) => {
 ```
 
@@ -56,7 +56,7 @@ Desarmemos esto:
 
 ### Línea 4: la navegación
 
-```typescript
+```javascript
 await page.goto('https://playwright.dev/');
 ```
 
@@ -67,7 +67,7 @@ En este caso, abrimos la web oficial de Playwright.
 
 ### Línea 6: comentario
 
-```typescript
+```javascript
 // Expect a title "to contain" a substring.
 ```
 
@@ -77,7 +77,7 @@ En TypeScript los comentarios empiezan con `//` (para una sola línea) o van ent
 
 ### Línea 7: la assertion
 
-```typescript
+```javascript
 await expect(page).toHaveTitle(/Playwright/);
 ```
 
@@ -92,7 +92,7 @@ Desarmemos:
 
 ### Línea 8: cierre
 
-```typescript
+```javascript
 });
 ```
 
@@ -108,7 +108,7 @@ Desarmemos:
 
 ### Líneas 10 y 11: declaración y navegación
 
-```typescript
+```javascript
 test('get started link', async ({ page }) => {
   await page.goto('https://playwright.dev/');
 ```
@@ -119,7 +119,7 @@ Notá que este test empieza desde cero con una pestaña limpia. **No hereda nada
 
 ### Líneas 13 y 14: la acción
 
-```typescript
+```javascript
   // Click the get started link.
   await page.getByRole('link', { name: 'Get started' }).click();
 ```
@@ -139,7 +139,7 @@ Después de este click, la página cambia: nos lleva a la sección de instalaci�
 
 ### Líneas 16 y 17: la verificación
 
-```typescript
+```javascript
   // Expects page to have a heading with the name of Installation.
   await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
 ```
@@ -156,7 +156,7 @@ Porque hace lo mismo que vos me dijiste en la conversación anterior sobre el te
 
 ### Línea 18: cierre
 
-```typescript
+```javascript
 });
 ```
 
@@ -200,8 +200,8 @@ Y todo eso con estos ~18 líneas de código.
 
 Ahora que entendés cada línea, probemos modificarlo. Reemplazá el contenido de `example.spec.ts` con esto:
 
-```typescript
-import { test, expect } from '@playwright/test';
+```javascript
+const { test, expect } = require('@playwright/test');
 
 test('la página tiene el logo de Playwright', async ({ page }) => {
   await page.goto('https://playwright.dev/');
@@ -240,13 +240,13 @@ Si todo está bien, deberías ver 9 tests pasando (3 tests × 3 navegadores).
 
 Modificá una assertion para que falle. Por ejemplo, cambiá:
 
-```typescript
+```javascript
 await expect(page).toHaveTitle(/Playwright/);
 ```
 
 Por:
 
-```typescript
+```javascript
 await expect(page).toHaveTitle(/EstoNoExiste/);
 ```
 

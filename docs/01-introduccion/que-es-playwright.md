@@ -39,7 +39,7 @@ Podés escribir tus tests en:
 - Java
 - .NET (C#)
 
-En este material usamos TypeScript, que es el lenguaje con mejor soporte y más ejemplos en la comunidad.
+En este material usamos JavaScript, que es el lenguaje más accesible para alguien que arranca en automation. Playwright funciona idéntico con JS o TS, la decisión suele depender del equipo o del proyecto.
 
 ### 3. Auto-wait inteligente
 

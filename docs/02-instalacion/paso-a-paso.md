@@ -46,12 +46,14 @@ Te va a hacer 4 preguntas. Estas son las respuestas recomendadas.
 
 ```
 Do you want to use TypeScript or JavaScript?
-> TypeScript
+> JavaScript
 ```
 
-**Elegí TypeScript** (viene por default, dale Enter).
+**Elegí JavaScript** (viene por default, dale Enter).
 
-TypeScript es JavaScript con "tipos". Te ayuda a evitar errores porque el editor te avisa si estás usando algo mal. Es el estándar profesional para Playwright.
+En este material usamos JavaScript. Es más simple para arrancar y Playwright funciona igual de bien.
+
+Si tu equipo usa TypeScript (JS con "tipos" que ayudan a evitar errores), la elección es equivalente: los conceptos y la sintaxis son casi idénticos, solo cambia la extensión del archivo y algún detalle menor.
 
 ### Pregunta 2: ¿Dónde poner los tests?
 

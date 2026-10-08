@@ -30,11 +30,11 @@ npx playwright test --project=webkit
 npx playwright test --project=chromium --project=firefox
 ```
 
-## Configuración en playwright.config.ts
+## Configuración en playwright.config.js
 
-El archivo `playwright.config.ts` define qué "projects" (navegadores) están disponibles. Por default trae algo así:
+El archivo `playwright.config.js` define qué "projects" (navegadores) están disponibles. Por default trae algo así:
 
-```typescript
+```javascript
 projects: [
   {
     name: 'chromium',
@@ -61,7 +61,7 @@ Cada bloque define un "project": un nombre y una configuración de dispositivo. 
 
 ### Emular un iPhone
 
-```typescript
+```javascript
 {
   name: 'Mobile Safari',
   use: { ...devices['iPhone 15'] },
@@ -72,7 +72,7 @@ Con esto, Playwright emula la pantalla, el user agent y el touch de un iPhone 15
 
 ### Emular un Android
 
-```typescript
+```javascript
 {
   name: 'Mobile Chrome',
   use: { ...devices['Pixel 8'] },
@@ -81,7 +81,7 @@ Con esto, Playwright emula la pantalla, el user agent y el touch de un iPhone 15
 
 ### Cambiar la resolución de escritorio
 
-```typescript
+```javascript
 {
   name: 'chromium-4k',
   use: {
@@ -127,10 +127,10 @@ Si solo querés correr un archivo o incluso un test individual:
 
 ```bash
 # Solo un archivo
-npx playwright test tests/login.spec.ts
+npx playwright test tests/login.spec.js
 
 # Solo un archivo en Chromium
-npx playwright test tests/login.spec.ts --project=chromium
+npx playwright test tests/login.spec.js --project=chromium
 
 # Solo tests que matcheen un texto en el nombre
 npx playwright test --grep "checkout"

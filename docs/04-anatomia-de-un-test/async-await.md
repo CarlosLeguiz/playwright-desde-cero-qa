@@ -40,7 +40,7 @@ Una Promise es un objeto de JavaScript que representa una operación que aún no
 
 Cuando escribís:
 
-```typescript
+```javascript
 page.goto('https://playwright.dev/');
 ```
 
@@ -50,7 +50,7 @@ Esto NO navega inmediatamente. Devuelve una Promise que dice "voy a navegar, cua
 
 `await` significa literalmente "esperá". Le dice a JavaScript: "no pases a la línea siguiente hasta que esta Promise termine".
 
-```typescript
+```javascript
 await page.goto('https://playwright.dev/');
 // La línea de abajo NO se ejecuta hasta que la página cargue
 await page.getByRole('button').click();
@@ -62,7 +62,7 @@ Sin `await`, JavaScript pasaría a la línea siguiente sin esperar, y todo explo
 
 Para poder usar `await` dentro de una función, esa función tiene que estar marcada como `async`. Es la contraparte obligatoria.
 
-```typescript
+```javascript
 // ❌ Esto NO funciona
 function miTest() {
   await page.goto('...'); // Error: await solo funciona en funciones async
@@ -76,7 +76,7 @@ async function miTest() {
 
 En los tests de Playwright vas a ver siempre esta estructura:
 
-```typescript
+```javascript
 test('nombre del test', async ({ page }) => {
   //                    ^^^^^ obligatorio si vas a usar await adentro
   await page.goto('...');
@@ -90,7 +90,7 @@ test('nombre del test', async ({ page }) => {
 
 Ejemplos:
 
-```typescript
+```javascript
 await page.goto('https://ejemplo.com');
 await page.getByRole('link', { name: 'Login' }).click();
 await page.getByLabel('Usuario').fill('carlos');
@@ -104,11 +104,11 @@ Es el error más común cuando arrancás. El código no falla explícitamente, p
 
 1. **El test pasa cuando no debería**: como no esperaste, la assertion se hace antes de que el elemento aparezca, y falla o pasa por casualidad
 2. **El test se comporta raro**: acciones que salen fuera de orden
-3. **Warnings en la consola**: TypeScript te avisa que estás ignorando una Promise
+3. **Warnings en la consola**: tu editor te avisa que estás ignorando una Promise (más obvio en TypeScript, pero también visible en JavaScript con `// @ts-check`)
 
 Ejemplo real de bug típico:
 
-```typescript
+```javascript
 // ❌ Bug sutil: falta el await
 test('login', async ({ page }) => {
   await page.goto('https://miapp.com');
