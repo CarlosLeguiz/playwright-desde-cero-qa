@@ -42,7 +42,7 @@ Acá vas a vivir vos. Es la carpeta donde van todos los tests que escribas.
 
 Adentro viene por default:
 
-- `example.spec.ts`: un test de ejemplo que trae Playwright
+- `example.spec.js`: un test de ejemplo que trae Playwright
 
 **Convención importante:** los archivos de tests siempre terminan en `.spec.js` o `.test.js`. Playwright busca automáticamente todos los archivos con esa terminación y los ejecuta cuando corrés `npx playwright test`.
 
