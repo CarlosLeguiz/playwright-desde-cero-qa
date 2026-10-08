@@ -29,7 +29,7 @@ Cuando termines este módulo vas a poder mirar cualquier test de Playwright y en
    - Assertions negativas con `.not`
 
 5. [Ejemplo desglosado](./ejemplo-desglosado.md)
-   - Análisis línea por línea de `example.spec.ts`
+   - Análisis línea por línea de `example.spec.js`
    - Cómo se combinan todos los conceptos anteriores
    - Ejercicio: modificar el test
 

@@ -15,7 +15,7 @@ Cuando Playwright corre un test, no lo hace en un solo navegador. Por default lo
 
 3. [Correr en navegadores específicos](./correr-en-navegadores-especificos.md)
    - Cómo elegir un solo motor para debug rápido
-   - Configuración en `playwright.config.ts`
+   - Configuración en `playwright.config.js`
    - Estrategias de ejecución para desarrollo vs CI
 
 ## Objetivos de aprendizaje

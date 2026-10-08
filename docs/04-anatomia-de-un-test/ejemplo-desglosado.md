@@ -1,6 +1,6 @@
 # Ejemplo desglosado: el test que ya ejecutaste
 
-Cuando instalaste Playwright, se creó un archivo en `tests/example.spec.ts`. Ese es el test que corrió cuando ejecutaste `npx playwright test` por primera vez. Ahora que aprendiste async/await, estructura, locators y assertions, vamos a desmenuzarlo línea por línea.
+Cuando instalaste Playwright, se creó un archivo en `tests/example.spec.js`. Ese es el test que corrió cuando ejecutaste `npx playwright test` por primera vez. Ahora que aprendiste async/await, estructura, locators y assertions, vamos a desmenuzarlo línea por línea.
 
 ## El código completo
 
@@ -39,7 +39,7 @@ Traemos las dos funciones fundamentales de Playwright:
 - `test`: para declarar cada test
 - `expect`: para hacer las verificaciones
 
-Este import va SIEMPRE al principio de cada archivo `.spec.ts`.
+Este import va SIEMPRE al principio de cada archivo `.spec.js`.
 
 ### Línea 3: la declaración del test
 
@@ -73,7 +73,7 @@ En este caso, abrimos la web oficial de Playwright.
 
 Un comentario en el código. No se ejecuta. Sirve para explicar qué hace la línea de abajo.
 
-En TypeScript los comentarios empiezan con `//` (para una sola línea) o van entre `/* */` (para varias líneas).
+En JavaScript (y TypeScript) los comentarios empiezan con `//` (para una sola línea) o van entre `/* */` (para varias líneas).
 
 ### Línea 7: la assertion
 
@@ -188,7 +188,7 @@ Este patrón lo vas a ver en TODOS los tests, en cualquier framework, en cualqui
 
 Cuando corriste `npx playwright test`, Playwright:
 
-1. Encontró el archivo `example.spec.ts` en la carpeta `tests/`
+1. Encontró el archivo `example.spec.js` en la carpeta `tests/`
 2. Identificó los dos tests adentro
 3. Los ejecutó en Chromium, Firefox y WebKit (2 tests × 3 navegadores = 6 ejecuciones)
 4. Corrió varias en paralelo (para acelerar)
@@ -198,7 +198,7 @@ Y todo eso con estos ~18 líneas de código.
 
 ## Ejercicio: modificar el test
 
-Ahora que entendés cada línea, probemos modificarlo. Reemplazá el contenido de `example.spec.ts` con esto:
+Ahora que entendés cada línea, probemos modificarlo. Reemplazá el contenido de `example.spec.js` con esto:
 
 ```javascript
 const { test, expect } = require('@playwright/test');

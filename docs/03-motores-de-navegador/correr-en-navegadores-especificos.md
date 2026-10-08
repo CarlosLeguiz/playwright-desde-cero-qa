@@ -140,7 +140,7 @@ npx playwright test --grep "checkout"
 
 - `--project=chromium` corre solo en Chromium (y equivalentes para los otros)
 - Podés combinar flags para elegir varios
-- El archivo `playwright.config.ts` define qué navegadores están disponibles
+- El archivo `playwright.config.js` define qué navegadores están disponibles
 - En desarrollo local, corré en un solo motor para ir rápido
 - En CI, corré siempre en los tres para asegurar cobertura completa
 - Podés emular dispositivos mobile con `devices['iPhone 15']` u otros

@@ -233,7 +233,7 @@ Ventajas:
 
 ## Resumen
 
-- Todo test empieza con `import { test, expect } from '@playwright/test'`
+- Todo test empieza con `const { test, expect } = require('@playwright/test')`
 - La función `test` recibe un nombre descriptivo y una función asíncrona
 - `{ page }` es "destructuring" de un fixture: Playwright te prepara una pestaña del navegador
 - `page` es tu control remoto: con él navegás, encontrás elementos y ejecutás acciones
