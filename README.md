@@ -56,7 +56,7 @@ npx playwright show-report
 - [x] [Módulo 3: Motores de navegador](./docs/03-motores-de-navegador/README.md)
 - [x] [Módulo 4: Anatomía de un test](./docs/04-anatomia-de-un-test/README.md)
 - [x] [Módulo 5: Codegen](./docs/05-codegen/README.md)
-- [ ] Módulo 6: Locators y buenas prácticas
+- [x] [Módulo 6: Playwright con Claude Code](./docs/06-playwright-con-claude/README.md)
 - [ ] Módulo 7: Acciones (click, fill, type)
 - [ ] Módulo 8: Assertions
 - [ ] Módulo 9: Hooks
