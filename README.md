@@ -16,7 +16,6 @@ Este repositorio documenta mi proceso de aprendizaje de Playwright arrancando si
 - Node.js v18 o superior (recomendado v20 o v24 LTS)
 - VS Code
 - Conocimientos básicos de QA manual (test cases, defectos, flujos de aplicación)
-- No hace falta saber programar, vamos desde cero
 
 ## Instalación
 
